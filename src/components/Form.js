@@ -25,12 +25,24 @@ function Form(props) {
     setLastName("");
   }
 
+  const   listOfSubmission = submittedData.map((data, index) => {
+    return(
+      <div key={index}>
+        {data.firstName} {data.lastName}
+      </div>
+    );
+  });
+
   return (
+    <div>
     <form onSubmit={handleSubmit}>
       <input type="text" onChange={handleFirstNameChange} value={firstName} />
       <input type="text" onChange={handleLastNameChange} value={lastName} />
       <button type="submit">Submit</button>
     </form>
+    <h3>Submission</h3>
+    {listOfSubmission}
+    </div>
   );
 }
 
